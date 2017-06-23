@@ -66,7 +66,7 @@ class Comment
      */
     public function setUpdatedValue()
     {
-       $this->setUpdated(new \DateTime());
+        $this->setUpdated(new \DateTime());
     }
 
     /**

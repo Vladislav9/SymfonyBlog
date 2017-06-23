@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Comment controller.
  */
+
 class CommentController extends Controller
 {
     public function newAction($blog_id)
@@ -19,7 +20,7 @@ class CommentController extends Controller
 
         $comment = new Comment();
         $comment->setBlog($blog);
-        $form   = $this->createForm(CommentType::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
 
         return $this->render('BloggerBlogBundle:Comment:form.html.twig', array(
             'comment' => $comment,
@@ -31,14 +32,14 @@ class CommentController extends Controller
     {
         $blog = $this->getBlog($blog_id);
 
-        $comment  = new Comment();
+        $comment = new Comment();
         $comment->setBlog($blog);
-        $form    = $this->createForm(CommentType::class, $comment);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
-       if ($form->isValid()) {
+        if ($form->isValid()) {
             $em = $this->getDoctrine()
-                ->getManager();
+                       ->getManager();
             $em->persist($comment);
             $em->flush();
 
@@ -46,7 +47,7 @@ class CommentController extends Controller
             'id'    => $comment->getBlog()->getId(),
             'slug'  => $comment->getBlog()->getSlug())) .
             '#comment-' . $comment->getId()
-        );
+            );
         }
 
         return $this->render('BloggerBlogBundle:Comment:create.html.twig', array(
@@ -58,7 +59,7 @@ class CommentController extends Controller
     protected function getBlog($blog_id)
     {
         $em = $this->getDoctrine()
-            ->getManager();
+                   ->getManager();
 
         $blog = $em->getRepository('BloggerBlogBundle:Blog')->find($blog_id);
 
@@ -68,5 +69,4 @@ class CommentController extends Controller
 
         return $blog;
     }
-
 }

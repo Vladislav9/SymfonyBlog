@@ -19,7 +19,7 @@ class Enquiry
 
     protected $body;
 
-      public static function loadValidatorMetadata(ClassMetadata $metadata)
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('name', new NotBlank());
         $metadata->addPropertyConstraint('email', new Email());
@@ -95,5 +95,4 @@ class Enquiry
     {
         $this->body = $body;
     }
-
 }

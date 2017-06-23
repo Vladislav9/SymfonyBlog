@@ -62,9 +62,9 @@ class BlogFixtures extends AbstractFixture implements OrderedFixtureInterface
         $this->addReference('blog-5', $blog5);
 
     }
+
     public function getOrder()
     {
         return 1;
     }
-
 }
