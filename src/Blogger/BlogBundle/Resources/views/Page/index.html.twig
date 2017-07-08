@@ -19,7 +19,8 @@
             <footer class="meta">
                 <p>Comments: <a href="{{ path('BloggerBlogBundle_blog_show', { 'id': blog.id, 'slug': blog.slug }) }}#comments">{{ blog.comments|length }}</a></p>
                 <p>Posted by <span class="highlight">{{ blog.author }}</span> at {{ blog.created|date('h:iA') }}</p>
-                <p>Tags: <span class="highlight">{{ blog.tags }}</span></p>
+                <p>Tags:  <span class="highlight">{{ blog.tags }}</span></p>
+                <p>Likes: <span class="count">{{ blog.likes }}</span></p>
             </footer>
         </article>
     {% else %}

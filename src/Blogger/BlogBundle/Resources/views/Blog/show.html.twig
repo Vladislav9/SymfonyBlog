@@ -12,6 +12,9 @@
         <img src="{{ asset(['images/', blog.image]|join) }}" alt="{{ blog.title }} image not found" class="large" />
         <div>
             <p>{{ blog.blog }}</p>
+            <form method="POST">
+            <p><button name="likes" id="{{ blog.id }}">Like </button><span class="counter">{{ blog.likes }}</span></p>
+            </form>
         </div>
     </article>
       <section class="comments" id="comments">

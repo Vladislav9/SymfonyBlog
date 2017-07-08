@@ -59,6 +59,11 @@ class Blog
      */
     protected $comments;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $likes;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -348,4 +353,28 @@ class Blog
 
         return $text;
     }
+    /**
+     * Set likes
+     *
+     * @param integer $likes
+     *
+     * @return Blog
+     */
+    public function setLikes($likes)
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    /**
+     * Get likes
+     *
+     * @return integer
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+    
 }

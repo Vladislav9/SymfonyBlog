@@ -23,7 +23,6 @@ class BlogRepository extends \Doctrine\ORM\EntityRepository
     return $qb->getQuery()
               ->getResult();
     }
-
     public function getTags()
     {
         $blogTags = $this->createQueryBuilder('b')
